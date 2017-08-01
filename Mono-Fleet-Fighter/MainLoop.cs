@@ -38,9 +38,9 @@ namespace FleetFighter
         public Texture2D texEnemy07;
         
         //The music.
-        public Song sfxMusicBattle1, sfxMusicBattle2;
-        public Song sfxMusicBattle3, sfxMusicBattle4;
-        public SoundPlaylist sfxPlaylist;
+        public SoundEffect sfxMusicBattle1, sfxMusicBattle2;
+        public SoundEffect sfxMusicBattle3, sfxMusicBattle4;
+        public SfxPlaylist sfxPlaylist;
 
         public SoundEffect sfxBullet, sfxCollBullet, sfxMissile;
         public SoundEffect sfxCollPlayerEnemy; //also used for missile explosions.
@@ -144,12 +144,10 @@ namespace FleetFighter
             sfxPlayerHit = Content.Load<SoundEffect>("SfxPlayerHit");
             sfxWaveEnd = Content.Load<SoundEffect>("SfxWaveEnd");
             sfxWaveStart = Content.Load<SoundEffect>("SfxWaveStart");
-            /* TODO: Monogame doesn't support loading mp3 files.
-            
-            sfxMusicBattle1 = Content.Load<Song>("SfxMusicBattle1");
-            sfxMusicBattle2 = Content.Load<Song>("SfxMusicBattle2");
-            sfxMusicBattle3 = Content.Load<Song>("SfxMusicBattle3");
-            sfxMusicBattle4 = Content.Load<Song>("SfxMusicBattle4");*/
+            sfxMusicBattle1 = Content.Load<SoundEffect>("SfxMusicBattle1");
+            sfxMusicBattle2 = Content.Load<SoundEffect>("SfxMusicBattle2");
+            sfxMusicBattle3 = Content.Load<SoundEffect>("SfxMusicBattle3");
+            sfxMusicBattle4 = Content.Load<SoundEffect>("SfxMusicBattle4");
             sfxButtonClick = Content.Load<SoundEffect>("SfxBttnClick");
             sfxButtonExit = Content.Load<SoundEffect>("SfxBttnExit");
             sfxButtonConfirm = Content.Load<SoundEffect>("SfxBttnConfirm");
@@ -159,16 +157,12 @@ namespace FleetFighter
             objTitleScreen.LoadContent(Content);
             objSpawnControl.LoadContent(Content);
 
-            sfxPlaylist = new SoundPlaylist();
+            sfxPlaylist = new SfxPlaylist();
             sfxPlaylist.music.Add(sfxMusicBattle1);
             sfxPlaylist.music.Add(sfxMusicBattle2);
             sfxPlaylist.music.Add(sfxMusicBattle3);
             sfxPlaylist.music.Add(sfxMusicBattle4);
-            sfxPlaylist.Begin();
-        }
-
-        protected override void UnloadContent()
-        {
+            sfxPlaylist.Update();
         }
 
         protected override void Update(GameTime gameTime)
@@ -259,7 +253,7 @@ namespace FleetFighter
                     {
                         case RoomIndex.rmTitle:
                             highscores.SaveHighScores();
-                            this.Exit();
+                            Exit();
                             break;
                         case RoomIndex.rmOps:
                             room = RoomIndex.rmTitle;
@@ -359,7 +353,7 @@ namespace FleetFighter
         internal void SetMusic()
         {
             //Sets the background music.
-            sfxPlaylist.Begin();
+            sfxPlaylist.Update();
         }
     }
 }

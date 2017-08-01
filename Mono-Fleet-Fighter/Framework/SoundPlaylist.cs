@@ -1,72 +1,46 @@
-﻿using Microsoft.Xna.Framework.Media;
+﻿using Microsoft.Xna.Framework.Audio;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SimpleXnaFramework.Framework
 {
     /// <summary>
-    /// Plays individual sounds and has a primitive shuffle playlist.
+    /// An extremely basic music player.
     /// </summary>
-    public class SoundPlaylist
+    public class SfxPlaylist
     {
-        public List<Song> music; //List of all music to play.
-        private int _index; //The current song by index.
-        private float _vol; //The volume of the music.
-        public float Vol
-        {
-            get
-            {
-                return _vol;
-            }
+        public List<SoundEffect> music = new List<SoundEffect>(); //The list of sounds.
+        public SoundEffectInstance sound; //The current sound.
+        public int soundIndex = 0; //The position of the sound in the list.
 
-            set
+        /// <summary>
+        /// Creates a new playlist for sound effects.
+        /// </summary>
+        /// <param name="sounds">Takes any number of sounds.</param>
+        public SfxPlaylist(params SoundEffect[] snds)
+        {
+            foreach (SoundEffect sfx in snds)
             {
-                if (value >= 0 && value <= 1)
-                {
-                    _vol = value;
-                }
-                else
-                {
-                    throw new Exception("Volume must be from 0 to 1.");
-                }
+                music.Add(sfx);
             }
         }
 
-        //Used to shuffle the playlist.
-        private Random chance;
-
         /// <summary>
-        /// Initializes default values.
+        /// Randomly selects the next sound to play and returns sound index.
+        /// Returns -1 if there are no sounds loaded.
         /// </summary>
-        public SoundPlaylist()
+        public int NextSoundRandom()
         {
-            music = new List<Song>();
-            _index = 0;
-            Vol = 1;
-
-            chance = new Random();
-        }
-
-        /// <summary>
-        /// Plays directly from a song.
-        /// </summary>
-        public static void Play(Song snd, float vol)
-        {
-            MediaPlayer.Volume = vol;
-            MediaPlayer.Play(snd);
-        }
-
-        /// <summary>
-        /// Plays the given playlist.
-        /// </summary>
-        public void Begin()
-        {
-            _index = chance.Next(0, music.Count);
-
-            if (music.Count != 0)
+            if (music.Count == 0)
             {
-                MediaPlayer.Play(music[_index]);
+                return -1;
             }
+
+            soundIndex = new Random().Next(music.Count);
+            sound = music.ElementAt(soundIndex).CreateInstance();
+            sound.Play();
+            return soundIndex;
         }
 
         /// <summary>
@@ -74,7 +48,7 @@ namespace SimpleXnaFramework.Framework
         /// </summary>
         public void Pause()
         {
-            MediaPlayer.Pause();
+            sound?.Pause();
         }
 
         /// <summary>
@@ -82,30 +56,51 @@ namespace SimpleXnaFramework.Framework
         /// </summary>
         public void Resume()
         {
-            MediaPlayer.Resume();
+            sound.Resume();
         }
 
         /// <summary>
-        /// When music has finished, plays another randomly.
+        /// Shuffles the sound list.
+        /// </summary>
+        public void Shuffle()
+        {
+            Random rng = new Random();
+            int numSongs = music.Count;
+                
+            //Iterates through O(1) times.
+            while (numSongs > 1)
+            {
+                numSongs--;
+                int next = rng.Next(numSongs + 1);
+                SoundEffect value = music[next];
+                music[next] = music[numSongs];
+                music[numSongs] = value;
+            }
+        }
+
+        /// <summary>
+        /// Checks to see if the song ended and begins the next.
         /// </summary>
         public void Update()
         {
-            //When the current sound has stopped (assuming it finished), plays
-            //a different one on shuffle.
-            if (MediaPlayer.State == MediaState.Stopped)
+            //Starts playing the first sound.
+            if (sound == null)
             {
-                //The new song to play by index.
-                int newIndex;
+                NextSoundRandom();
+                return;
+            }
 
-                //Gets a random song from the list that isn't the current one.
-                do
+            //When the sound finishes, start another.
+            if (sound?.State == SoundState.Stopped)
+            {
+                //Keeps track of the old sound index for the loop.
+                int tempSoundIndex = soundIndex;
+
+                while (tempSoundIndex == soundIndex)
                 {
-                    newIndex = chance.Next(0, music.Count);
-                } while (_index == newIndex);
-
-                //Sets the new index and plays its associated music.
-                _index = newIndex;
-                MediaPlayer.Play(music[_index]);
+                    sound.Stop();
+                    NextSoundRandom();
+                }
             }
         }
     }

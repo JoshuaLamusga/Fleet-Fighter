@@ -85,30 +85,6 @@
 /processorParam:Quality=Best
 /build:SfxMissile.wav
 
-#begin SfxMusicBattle1.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:SfxMusicBattle1.mp3
-
-#begin SfxMusicBattle2.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:SfxMusicBattle2.mp3
-
-#begin SfxMusicBattle3.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:SfxMusicBattle3.mp3
-
-#begin SfxMusicBattle4.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:SfxMusicBattle4.mp3
-
 #begin SfxPlayerDies.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -525,4 +501,28 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:FntRegular.spritefont
+
+#begin SfxMusicBattle1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SfxMusicBattle1.wav
+
+#begin SfxMusicBattle2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SfxMusicBattle2.wav
+
+#begin SfxMusicBattle3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SfxMusicBattle3.wav
+
+#begin SfxMusicBattle4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SfxMusicBattle4.wav
 
