@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mono_Fleet_Fighter
+namespace FleetFighter
 {
 #if WINDOWS || LINUX
     /// <summary>
@@ -12,10 +12,12 @@ namespace Mono_Fleet_Fighter
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
-            using (var game = new Game1())
+            using (MainLoop game = new MainLoop())
+            {
                 game.Run();
+            }
         }
     }
 #endif

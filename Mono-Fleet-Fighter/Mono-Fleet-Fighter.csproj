@@ -41,9 +41,33 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Game1.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Framework\CtrlKeyboard.cs" />
+    <Compile Include="Framework\Mathematics.cs" />
+    <Compile Include="Framework\SmoothRect.cs" />
+    <Compile Include="Framework\Sound.cs" />
+    <Compile Include="Framework\SoundPlaylist.cs" />
+    <Compile Include="Framework\Sprite.cs" />
+    <Compile Include="Framework\SpriteAtlas.cs" />
+    <Compile Include="Framework\SpriteDraw.cs" />
+    <Compile Include="Framework\SpriteFrames.cs" />
+    <Compile Include="Framework\SpritePhysics.cs" />
+    <Compile Include="MainLoop.cs" />
+    <Compile Include="MainInit.cs" />
+    <Compile Include="ObjBullet.cs" />
+    <Compile Include="ObjCrosshair.cs" />
+    <Compile Include="ObjEnemy.cs" />
+    <Compile Include="ObjExplosion.cs" />
+    <Compile Include="ObjFragment.cs" />
+    <Compile Include="ObjHighscoreData.cs" />
+    <Compile Include="ObjMenuItem.cs" />
+    <Compile Include="ObjMissile.cs" />
+    <Compile Include="ObjPlayer.cs" />
+    <Compile Include="ObjSpawnControl.cs" />
+    <Compile Include="ObjStars.cs" />
+    <Compile Include="ObjTimer.cs" />
+    <Compile Include="ObjTitleScreen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomIndex.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
