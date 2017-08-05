@@ -8,17 +8,6 @@ namespace FleetFighter
     /// <summary>
     /// Represents any type of enemy.
     /// AI is based on type.
-    /// 
-    /// Types and their uses:
-    /// 
-    /// 0: Fly straight down at a slow speed with only one life.
-    /// 1: A powerful version of type 0 that banks after y > actionFloat1 by accel. actionFloat2.
-    /// 2: Fly straight down, but stop after y > actionFloat1 and shoot at intervals for actionFloat2 ticks.
-    /// 3: Come in traveling at actionFloat1 xSpeed and wraps around the screen.
-    /// 4: Fly straight down with interval shooting; speed up after y > actionFloat1 by accel. actionFloat2.
-    /// 5: Same as 2, but points at the player and takes more damage.
-    /// 6: Fly straight down and do nothing else (acts like a bullet).
-    /// 7: Fly straight down launching type 6 enemies every actionFloat1 ticks.
     /// </summary>
     public class ObjEnemy
     {
@@ -28,12 +17,12 @@ namespace FleetFighter
         public SpritePhysics spritePhysics;
         public SpriteAtlas spriteAtlas;
 
-        public int type = 0; //The type of enemy.
+        public EnemyType type; //The type of enemy.
         public float hitsTotal; //How many hits it takes to destroy.
         public float hits; //How many hits it takes to destroy.
         
         public float angle = 0;
-        public bool destroyed = false; //Checked by the enemyIndex and deleted if true.
+        public bool isDestroyed = false; //Checked by the enemyIndex and deleted if true.
 
         public int healthDuration = 60; //How long health is visible when hit.
         public int healthVisible = 0; //The number of ticks in which health is visible.
@@ -48,7 +37,7 @@ namespace FleetFighter
         /// <summary>
         /// Creates a new enemy.
         /// </summary>
-        public ObjEnemy(MainLoop game, ObjSpawnControl objSpawnControl, int type)
+        public ObjEnemy(MainLoop game, ObjSpawnControl objSpawnControl, EnemyType type)
         {
             this.game = game;
             this.objSpawnControl = objSpawnControl;
@@ -58,45 +47,45 @@ namespace FleetFighter
             sprite.drawBehavior = SpriteDraw.all;
             switch (type)
             {
-                case (0):
+                case (EnemyType.Flyer):
                     sprite.SetTexture(true, game.texEnemy01);
                     spriteAtlas = new SpriteAtlas(sprite, 36, 27, 3, 1, 3);
                     bulletColor = Color.OrangeRed;
                     break;
-                case (1):
+                case (EnemyType.BankingFlyer):
                     sprite.SetTexture(true, game.texEnemy01);
                     spriteAtlas = new SpriteAtlas(sprite, 36, 27, 3, 1, 3);
                     bulletColor = Color.OrangeRed;
                     break;
-                case (2):
+                case (EnemyType.Sentry):
                     sprite.SetTexture(true, game.texEnemy02);
                     spriteAtlas = new SpriteAtlas(sprite, 36, 33, 3, 1, 3);
                     bulletColor = Color.Aqua;
                     break;
-                case (3):
+                case (EnemyType.Distractor):
                     sprite.SetTexture(true, game.texEnemy03);
                     spriteAtlas = new SpriteAtlas(sprite, 42, 43, 4, 1, 4);
                     bulletColor = Color.Fuchsia;
                     break;
-                case (4):
+                case (EnemyType.ThrustFlyer):
                     sprite.SetTexture(true, game.texEnemy04);
                     spriteAtlas = new SpriteAtlas(sprite, 43, 49, 6, 1, 6);
                     bulletColor = Color.Yellow;
                     break;
-                case (5):
+                case (EnemyType.BankingFlyerHard):
                     sprite.SetTexture(true, game.texEnemy05);
                     spriteAtlas = new SpriteAtlas(sprite, 92, 81, 6, 1, 6);
                     bulletColor = Color.Blue;
                     break;
-                case (6):
+                case (EnemyType.Bullet):
                     sprite.SetTexture(true, game.texEnemy06);
                     spriteAtlas = new SpriteAtlas(sprite, 10, 10, 1, 1, 1);
-                    bulletColor = Color.White; //Fires no bullets.
+                    bulletColor = Color.White;
                     break;
-                case (7):
+                case (EnemyType.Spawner):
                     sprite.SetTexture(true, game.texEnemy07);
                     spriteAtlas = new SpriteAtlas(sprite, 52, 50, 3, 1, 3);
-                    bulletColor = Color.White; //Fires no bullets.
+                    bulletColor = Color.White;
                     break;
             }
         }
@@ -107,19 +96,19 @@ namespace FleetFighter
         {
             switch (type)
             {
-                case (0):
+                case (EnemyType.Flyer):
                     spritePhysics.YMove = 2;
                     spriteAtlas.frame = 2;
                     spriteAtlas.Update(true);
                     hitsTotal = 1;
                     hits = hitsTotal;
                     break;
-                case (1):
+                case (EnemyType.BankingFlyer):
                     spritePhysics.YMove = 4;
                     hitsTotal = 3;
                     hits = hitsTotal;
                     break;
-                case (2):
+                case (EnemyType.Sentry):
                     actionTimeDuration = 60;
                     actionTime = 60;
                     actionTimeDuration2 = 20;
@@ -128,20 +117,20 @@ namespace FleetFighter
                     hitsTotal = 3;
                     hits = hitsTotal;
                     break;
-                case (3):
+                case (EnemyType.Distractor):
                     spritePhysics.YMove = 3;
                     spritePhysics.XMove = actionFloat1;
                     hitsTotal = 4;
                     hits = hitsTotal;
                     break;
-                case (4):
+                case (EnemyType.ThrustFlyer):
                     actionTimeDuration2 = 60;
                     actionTime2 = 60;
                     spritePhysics.YMove = 1;
                     hitsTotal = 6;
                     hits = hitsTotal;
                     break;
-                case (5):
+                case (EnemyType.BankingFlyerHard):
                     actionTimeDuration = 120;
                     actionTime = 120;
                     actionTimeDuration2 = 80;
@@ -150,14 +139,14 @@ namespace FleetFighter
                     hitsTotal = 6;
                     hits = hitsTotal;
                     break;
-                case (6):
+                case (EnemyType.Bullet):
                     spritePhysics.YMove = 3;
                     spritePhysics.AddRotation(0.05f);
                     spriteAtlas.Update(true);
                     hitsTotal = 1;
                     hits = hitsTotal;
                     break;
-                case (7):
+                case (EnemyType.Spawner):
                     actionTimeDuration = (int)actionFloat1;
                     actionTime = actionTimeDuration;
                     spritePhysics.YMove = 2;
@@ -178,7 +167,7 @@ namespace FleetFighter
                 healthVisible = 0;
             }
 
-            if (!(spritePhysics.XMove == 0 && spritePhysics.YMove == 0) && type != 6)
+            if (!(spritePhysics.XMove == 0 && spritePhysics.YMove == 0) && type != EnemyType.BankingFlyerHard)
             {
                 //Updates the angle for the enemies that change it.
                 sprite.angle = (float)spritePhysics.GetDirection(true);
@@ -213,7 +202,7 @@ namespace FleetFighter
                     Sound.Play(game.sfxCollPlayerEnemy, Convert.ToInt16(!game.isMuted));
                     objSpawnControl.objPlayer.hp -= 30;
                     objSpawnControl.objPlayer.CheckDeath(false);
-                    destroyed = true;
+                    isDestroyed = true;
                 }
 
                 //Updates the frame based on the current life.
@@ -225,12 +214,11 @@ namespace FleetFighter
 
                 switch (type)
                 {
-                    //Very basic red-orange enemies.
-                    case (0):
+                    case (EnemyType.Flyer):
                         chance = objSpawnControl.random.Next(0, 200);
                         break;
-                    //Red-orange enemies that shoot and curve.
-                    case (1):
+
+                    case (EnemyType.BankingFlyer):
                         chance = objSpawnControl.random.Next(0, 100);
                         if (sprite.rectDest.Y > actionFloat1 && !actionBool1)
                         {
@@ -238,8 +226,8 @@ namespace FleetFighter
                             spritePhysics.XAccel = actionFloat2;
                         }
                         break;
-                    //Blue enemies that stop and shoot.
-                    case (2):
+
+                    case (EnemyType.Sentry):
                         chance = 0;
                         if (actionBool1 && spritePhysics.YMove == 0)
                         {
@@ -258,9 +246,8 @@ namespace FleetFighter
                             spritePhysics.YAccel = 0.1f;
                         }
                         break;
-                    //Colorful enemies that wrap around the screen.
-                    //They move diagonally.
-                    case (3):
+
+                    case (EnemyType.Distractor):
                         chance = objSpawnControl.random.Next(0, 200);
 
                         //Wraps around the screen horizontally only.
@@ -277,8 +264,8 @@ namespace FleetFighter
                             objSpawnControl.enemyIndexDelete.Add(this);
                         }
                         break;
-                    //Enemies that shoot at intervals and accelerate y.
-                    case (4):
+
+                    case (EnemyType.ThrustFlyer):
                         chance = 0;
                         CreateBulletTimed(20, 40);
                         if (sprite.rectDest.Y > actionFloat1 && !actionBool1)
@@ -287,8 +274,8 @@ namespace FleetFighter
                             spritePhysics.YAccel = actionFloat2;
                         }
                         break;
-                    //Enemies that stop to shoot at you, then move on.
-                    case (5):
+
+                    case (EnemyType.BankingFlyerHard):
                         chance = 0;
                         if (actionBool1 && spritePhysics.YMove == 0)
                         {
@@ -312,10 +299,9 @@ namespace FleetFighter
                             spritePhysics.YAccel = 0.1f;
                         }
                         break;
-                    case (6):
-                        break;
-                    case (7):
-                        chance = 0;                        
+
+                    case (EnemyType.Bullet):
+                    case (EnemyType.Spawner):
                         break;
                 }
                 
@@ -341,15 +327,15 @@ namespace FleetFighter
             if (hits <= 0)
             {
                 Sound.Play(game.sfxEnemyDestroyed, Convert.ToInt16(!game.isMuted) * 0.5f);
-                if (type != 6)
+                if (type != EnemyType.Bullet)
                 {
-                    objSpawnControl.objPlayer.score += 10 * type;
+                    objSpawnControl.objPlayer.score += 10 * (int)type;
                 }
                 else
                 {
                     objSpawnControl.objPlayer.score += 10;
                 }
-                destroyed = true;
+                isDestroyed = true;
             }
             else
             {

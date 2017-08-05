@@ -118,7 +118,7 @@ namespace FleetFighter
                     }
                     else if (timing.AtTime(0, 9, 0))
                     {
-                        CreateRelative(1, 3, width / 2 - game.texEnemy01.Width, game.texEnemy01.Width, 0, 0, 0);
+                        CreateRelative(EnemyType.BankingFlyer, 3, width / 2 - game.texEnemy01.Width, game.texEnemy01.Width, 0, 0, 0);
                     }
                     if (timing.secs >= 9 && enemyIndex.Count == 0)
                     {
@@ -144,7 +144,7 @@ namespace FleetFighter
                     }
                     else if (timing.AtTime(0, 5, 0))
                     {
-                        CreateSingle(1, width / 2, 0, 0);
+                        CreateSingle(EnemyType.Flyer, width / 2, 0, 0);
                     }
                     else if (timing.AtTime(0, 6, 0))
                     {
@@ -156,7 +156,7 @@ namespace FleetFighter
                     }
                     else if (timing.AtTime(0, 10, 0))
                     {
-                        CreateRelative(1, 3, width / 2 - game.texEnemy01.Width, game.texEnemy01.Width, 0, 0, 0);
+                        CreateRelative(EnemyType.BankingFlyer, 3, width / 2 - game.texEnemy01.Width, game.texEnemy01.Width, 0, 0, 0);
                     }
                     if (timing.secs >= 10 && enemyIndex.Count == 0)
                     {
@@ -169,7 +169,7 @@ namespace FleetFighter
                 case (2):
                     if (timing.AtTime(0, 1, 0))
                     {
-                        CreatePointLine(1, width / 2, 3, game.texEnemy01.Height + 32, 0, 0);
+                        CreatePointLine(EnemyType.BankingFlyer, width / 2, 3, game.texEnemy01.Height + 32, 0, 0);
                     }
                     else if (timing.AtTime(0, 2, 0))
                     {
@@ -177,18 +177,18 @@ namespace FleetFighter
                     }
                     else if (timing.AtTime(0, 4, 0))
                     {
-                        CreateSingle(2, width / 2, 200, 30);
-                        CreateSingle(2, width / 2 - game.texEnemy02.Width, 200, 60);
-                        CreateSingle(2, width / 2 + game.texEnemy02.Width, 200, 60);
+                        CreateSingle(EnemyType.Sentry, width / 2, 200, 30);
+                        CreateSingle(EnemyType.Sentry, width / 2 - game.texEnemy02.Width, 200, 60);
+                        CreateSingle(EnemyType.Sentry, width / 2 + game.texEnemy02.Width, 200, 60);
                     }
                     else if (timing.AtTime(0, 6, 0))
                     {
-                        CreateSingle(1, game.texEnemy01.Width / 2, 200, 0.1f);
-                        CreateSingle(1, width - game.texEnemy01.Width / 2, 200, -0.1f);
+                        CreateSingle(EnemyType.BankingFlyer, game.texEnemy01.Width / 2, 200, 0.1f);
+                        CreateSingle(EnemyType.BankingFlyer, width - game.texEnemy01.Width / 2, 200, -0.1f);
                     }
                     else if (timing.AtTime(0, 7, 0))
                     {
-                        CreateSpread(1, 10, game.texEnemy01.Width, 0, 0);
+                        CreateSpread(EnemyType.BankingFlyer, 10, game.texEnemy01.Width, 0, 0);
                     }
                     if (timing.secs >= 7 && enemyIndex.Count == 0)
                     {
@@ -206,41 +206,41 @@ namespace FleetFighter
                     }
                     if (timing.AtTime(0, 2, 0))
                     {
-                        CreateSingle(1, 10, 0, 0);
-                        CreateSingle(1, width - 10, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, 10, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, width - 10, 0, 0);
                     }
                     else if (timing.AtTime(0, 3, 0))
                     {
-                        CreateSingle(1, width / 2, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, width / 2, 0, 0);
                     }
                     else if (timing.AtTime(30, 3, 0))
                     {
-                        CreateSingle(2, width / 2, 100, 60);
-                        CreateSingle(2, width / 2, 200, 60);
+                        CreateSingle(EnemyType.Sentry, width / 2, 100, 60);
+                        CreateSingle(EnemyType.Sentry, width / 2, 200, 60);
                     }
                     else if (timing.AtTime(0, 4, 0))
                     {
-                        CreateSingle(1, 10, 200, 0.1f);
-                        CreateSingle(1, width - 10, 200, -0.1f);
+                        CreateSingle(EnemyType.BankingFlyer, 10, 200, 0.1f);
+                        CreateSingle(EnemyType.BankingFlyer, width - 10, 200, -0.1f);
                     }
                     else if (timing.AtTime(0, 5, 0))
                     {
-                        CreatePointLine(1, 10, 5, game.texEnemy01.Height, 0, 0);
-                        CreatePointLine(1, width - 10, 5, game.texEnemy01.Height, 0, 0);
+                        CreatePointLine(EnemyType.BankingFlyer, 10, 5, game.texEnemy01.Height, 0, 0);
+                        CreatePointLine(EnemyType.BankingFlyer, width - 10, 5, game.texEnemy01.Height, 0, 0);
                     }
                     else if (timing.AtTime(0, 6, 0))
                     {
-                        CreateSpreadStaggered(1, 10, 0, 0);
+                        CreateSpreadStaggered(EnemyType.BankingFlyer, 10, 0, 0);
                     }
                     else if (timing.AtTime(0, 8, 0))
                     {
-                        CreateSingle(1, 10, 200, 0.2f);
-                        CreateSingle(1, width - 10, 200, -0.2f);
+                        CreateSingle(EnemyType.BankingFlyer, 10, 200, 0.2f);
+                        CreateSingle(EnemyType.BankingFlyer, width - 10, 200, -0.2f);
                     }
                     else if (timing.AtTime(30, 8, 0))
                     {
-                        CreatePointLine(1, width / 2 - 64, 6, game.texEnemy01.Height, 250, -0.2f);
-                        CreatePointLine(1, width / 2 + 64, 6, game.texEnemy01.Height, 250, 0.2f);
+                        CreatePointLine(EnemyType.BankingFlyer, width / 2 - 64, 6, game.texEnemy01.Height, 250, -0.2f);
+                        CreatePointLine(EnemyType.BankingFlyer, width / 2 + 64, 6, game.texEnemy01.Height, 250, 0.2f);
                     }
                     if (timing.secs >= 8 && enemyIndex.Count == 0)
                     {
@@ -255,61 +255,61 @@ namespace FleetFighter
                 {
                     if (timing.AtTime(0, 1, 0))
                     {
-                        CreateSingle(1, 32, 0, 0);
-                        CreateSingle(1, width - 32, 0, 0);
-                        CreateSingle(1, 128, 0, 0);
-                        CreateSingle(1, width - 128, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, 32, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, width - 32, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, 128, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, width - 128, 0, 0);
                     }
                     else if (timing.AtTime(30, 1, 0))
                     {
-                        CreateSingle(2, 64, 0, 0);
-                        CreateSingle(2, width - 64, 0, 0);
+                        CreateSingle(EnemyType.Sentry, 64, 0, 0);
+                        CreateSingle(EnemyType.Sentry, width - 64, 0, 0);
                     }
                     else if (timing.AtTime(0, 2, 0))
                     {
-                        CreateSingle(1, 64, 200, 0.2f);
-                        CreateSingle(1, width - 64, 200, -0.2f);
-                        CreateSingle(1, 196, 0, 0);
-                        CreateSingle(1, width - 196, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, 64, 200, 0.2f);
+                        CreateSingle(EnemyType.BankingFlyer, width - 64, 200, -0.2f);
+                        CreateSingle(EnemyType.BankingFlyer, 196, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, width - 196, 0, 0);
                     }
                     else if (timing.AtTime(30, 2, 0))
                     {
-                        CreateSingle(1, 32, 0, 0);
-                        CreateSingle(1, width - 32, 0, 0);
-                        CreateSingle(1, 128, 0, 0);
-                        CreateSingle(1, width - 128, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, 32, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, width - 32, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, 128, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, width - 128, 0, 0);
                     }
                     else if (timing.AtTime(0, 3, 0))
                     {
-                        CreateSpread(2, 10, game.texEnemy02.Height, 100, 60);
+                        CreateSpread(EnemyType.Sentry, 10, game.texEnemy02.Height, 100, 60);
                     }
                     else if (timing.AtTime(30, 3, 0))
                     {
-                        CreateSpread(1, 10, game.texEnemy01.Height, 0, 0);
+                        CreateSpread(EnemyType.BankingFlyer, 10, game.texEnemy01.Height, 0, 0);
                     }
                     else if (timing.AtTime(0, 4, 0))
                     {
-                        CreateSingle(1, 64, 200, 0.2f);
-                        CreateSingle(1, width - 64, 200, -0.2f);
-                        CreateSingle(1, 196, 0, 0);
-                        CreateSingle(1, width - 196, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, 64, 200, 0.2f);
+                        CreateSingle(EnemyType.BankingFlyer, width - 64, 200, -0.2f);
+                        CreateSingle(EnemyType.BankingFlyer, 196, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, width - 196, 0, 0);
                     }
                     else if (timing.AtTime(0, 5, 0))
                     {
-                        CreatePointLine(1, width - game.texEnemy01.Width, 4, game.texEnemy01.Height, 0, 0);
-                        CreatePointLine(1, width + game.texEnemy01.Width, 4, game.texEnemy01.Height, 0, 0);
+                        CreatePointLine(EnemyType.BankingFlyer, width - game.texEnemy01.Width, 4, game.texEnemy01.Height, 0, 0);
+                        CreatePointLine(EnemyType.BankingFlyer, width + game.texEnemy01.Width, 4, game.texEnemy01.Height, 0, 0);
                     }
                     else if (timing.AtTime(0, 6, 0))
                     {
-                        CreateRelative(1, 2, 20, 0, -game.texEnemy01.Height, 200, 0.2f);
-                        CreateRelative(1, 2, width - 20, 0, -game.texEnemy01.Height, 200, -0.2f);
-                        CreateSingle(3, width / 2 - 32, 2, 0);
-                        CreateSingle(3, width / 2 + 32, -2, 0);
+                        CreateRelative(EnemyType.BankingFlyer, 2, 20, 0, -game.texEnemy01.Height, 200, 0.2f);
+                        CreateRelative(EnemyType.BankingFlyer, 2, width - 20, 0, -game.texEnemy01.Height, 200, -0.2f);
+                        CreateSingle(EnemyType.Distractor, width / 2 - 32, 2, 0);
+                        CreateSingle(EnemyType.Distractor, width / 2 + 32, -2, 0);
                     }
                     else if (timing.AtTime(0, 7, 0))
                     {
-                        CreateSpreadDiagonal(2, 10, true, 200, 60);
-                        CreateSpreadDiagonal(2, 10, false, 200, 60);
+                        CreateSpreadDiagonal(EnemyType.Sentry, 10, true, 200, 60);
+                        CreateSpreadDiagonal(EnemyType.Sentry, 10, false, 200, 60);
                     }
                     if (timing.secs >= 7 && enemyIndex.Count == 0)
                     {
@@ -324,67 +324,67 @@ namespace FleetFighter
                 {
                     if (timing.AtTime(0, 1, 0))
                     {
-                        CreatePointLine(1, game.texEnemy01.Width, 10, 20, 260, 0.2f);
-                        CreatePointLine(1, width - game.texEnemy01.Width, 10, 20, 260, -0.2f);
+                        CreatePointLine(EnemyType.BankingFlyer, game.texEnemy01.Width, 10, 20, 260, 0.2f);
+                        CreatePointLine(EnemyType.BankingFlyer, width - game.texEnemy01.Width, 10, 20, 260, -0.2f);
                     }
                     else if (timing.AtTime(30, 1, 0))
                     {
-                        CreateSingle(2, 40, 20, 60);
-                        CreateSingle(2, width - 40, 20, 60);
+                        CreateSingle(EnemyType.Sentry, 40, 20, 60);
+                        CreateSingle(EnemyType.Sentry, width - 40, 20, 60);
                     }
                     else if (timing.AtTime(0, 2, 0))
                     {
-                        CreateSpreadDiagonal(2, 10, true, 100, 60);
-                        CreateSpreadDiagonal(2, 10, false, 100, 60);
+                        CreateSpreadDiagonal(EnemyType.Sentry, 10, true, 100, 60);
+                        CreateSpreadDiagonal(EnemyType.Sentry, 10, false, 100, 60);
                     }
                     else if (timing.AtTime(0, 4, 0))
                     {
-                        CreateSpreadDiagonal(1, 3, true, 200, 0.1f);
-                        CreateSpreadDiagonal(1, 3, false, 200, -0.1f);
+                        CreateSpreadDiagonal(EnemyType.BankingFlyer, 3, true, 200, 0.1f);
+                        CreateSpreadDiagonal(EnemyType.BankingFlyer, 3, false, 200, -0.1f);
                     }
                     else if (timing.AtTime(0, 6, 0))
                     {
-                        CreateRelative(1, 2, 30, game.texEnemy01.Width, 0, 0, 0);
-                        CreateRelative(1, 2, width - 30, game.texEnemy01.Width, 0, 0, 0);
-                        CreateSingle(3, width / 2 - 60, 2f, 0);
-                        CreateSingle(3, width / 2 + 60, -2f, 0);
+                        CreateRelative(EnemyType.BankingFlyer, 2, 30, game.texEnemy01.Width, 0, 0, 0);
+                        CreateRelative(EnemyType.BankingFlyer, 2, width - 30, game.texEnemy01.Width, 0, 0, 0);
+                        CreateSingle(EnemyType.Distractor, width / 2 - 60, 2f, 0);
+                        CreateSingle(EnemyType.Distractor, width / 2 + 60, -2f, 0);
                     }
                     else if (timing.AtTime(30, 6, 0))
                     {
-                        CreateSingle(3, width / 2, 3f, 0);
-                        CreateSingle(3, width / 2, -3f, 0);
+                        CreateSingle(EnemyType.Distractor, width / 2, 3f, 0);
+                        CreateSingle(EnemyType.Distractor, width / 2, -3f, 0);
                     }
                     else if (timing.AtTime(0, 7, 0))
                     {
-                        CreatePointLine(1, game.texEnemy01.Width, 3, 20, 320, 0.4f);
-                        CreatePointLine(1, width - game.texEnemy01.Width, 3, 20, 320, -0.4f);
+                        CreatePointLine(EnemyType.BankingFlyer, game.texEnemy01.Width, 3, 20, 320, 0.4f);
+                        CreatePointLine(EnemyType.BankingFlyer, width - game.texEnemy01.Width, 3, 20, 320, -0.4f);
                     }
                     else if (timing.AtTime(30, 7, 0))
                     {
-                        CreateSingle(1, width / 2 - 32, 0, 0);
-                        CreateSingle(1, width / 2 + 32, 0, 0);
-                        CreateRelative(1, 2, game.texEnemy01.Width / 2, game.texEnemy01.Width, 0, 0, 0);
-                        CreateRelative(1, 2, width - game.texEnemy01.Width / 2, game.texEnemy01.Width, 0, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, width / 2 - 32, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyer, width / 2 + 32, 0, 0);
+                        CreateRelative(EnemyType.BankingFlyer, 2, game.texEnemy01.Width / 2, game.texEnemy01.Width, 0, 0, 0);
+                        CreateRelative(EnemyType.BankingFlyer, 2, width - game.texEnemy01.Width / 2, game.texEnemy01.Width, 0, 0, 0);
                     }
                     else if (timing.AtTime(0, 8, 0))
                     {
-                        CreateSingle(4, width / 2, 0, 0);
-                        CreateSpreadDiagonal(1, 5, true, 300, 0.3f);
-                        CreateSpreadDiagonal(1, 5, false, 300, -0.3f);
+                        CreateSingle(EnemyType.ThrustFlyer, width / 2, 0, 0);
+                        CreateSpreadDiagonal(EnemyType.BankingFlyer, 5, true, 300, 0.3f);
+                        CreateSpreadDiagonal(EnemyType.BankingFlyer, 5, false, 300, -0.3f);
                     }
                     else if (timing.AtTime(30, 8, 0))
                     {
-                        CreateSpreadStaggered(2, 10, 200, 60);
+                        CreateSpreadStaggered(EnemyType.Sentry, 10, 200, 60);
                     }
                     else if (timing.AtTime(0, 9, 0))
                     {
-                        CreateSingle(3, game.texEnemy03.Width, 2, 0);
-                        CreateSingle(3, width - game.texEnemy03.Width, -2, 0);
+                        CreateSingle(EnemyType.Distractor, game.texEnemy03.Width, 2, 0);
+                        CreateSingle(EnemyType.Distractor, width - game.texEnemy03.Width, -2, 0);
                     }
                     else if (timing.AtTime(30, 9, 0))
                     {
-                        CreatePointLine(3, 40, 3, game.texEnemy03.Width, 4, 0);
-                        CreatePointLine(3, width - 40, 3, game.texEnemy03.Width, -4, 0);
+                        CreatePointLine(EnemyType.Distractor, 40, 3, game.texEnemy03.Width, 4, 0);
+                        CreatePointLine(EnemyType.Distractor, width - 40, 3, game.texEnemy03.Width, -4, 0);
                     }
                     if (timing.secs >= 9 && enemyIndex.Count == 0)
                     {
@@ -399,60 +399,60 @@ namespace FleetFighter
                 {
                     if (timing.AtTime(0, 1, 0))
                     {
-                        CreatePointLine(4, width / 2, 5, game.texEnemy03.Width, 4, 0);
-                        CreateSpreadDiagonal(1, 10, true, 240, 0.2f);
-                        CreateSpreadDiagonal(1, 10, false, 240, -0.2f);
-                        CreateSingle(4, 32, 0, 0);
-                        CreateSingle(4, width - 32, 0, 0);
+                        CreatePointLine(EnemyType.ThrustFlyer, width / 2, 5, game.texEnemy03.Width, 4, 0);
+                        CreateSpreadDiagonal(EnemyType.BankingFlyer, 10, true, 240, 0.2f);
+                        CreateSpreadDiagonal(EnemyType.BankingFlyer, 10, false, 240, -0.2f);
+                        CreateSingle(EnemyType.ThrustFlyer, 32, 0, 0);
+                        CreateSingle(EnemyType.ThrustFlyer, width - 32, 0, 0);
                     }
                     else if (timing.AtTime(0, 2, 0))
                     {
-                        CreateSingle(2, width / 2, 0, 0);
+                        CreateSingle(EnemyType.Sentry, width / 2, 0, 0);
                     }
                     else if (timing.AtTime(0, 4, 0))
                     {
-                        CreateSingle(2, width / 2, 0, 0);
-                        CreateRelative(1, 3, game.texEnemy01.Width, game.texEnemy01.Width, 0, 100, 0.1f);
-                        CreateRelative(1, 3, width - game.texEnemy01.Width, -game.texEnemy01.Width, 0, 100, -0.1f);
-                        CreatePointLine(2, 160, 2, game.texEnemy02.Height + 2, 360, 120);
-                        CreatePointLine(2, width - 160, 2, game.texEnemy02.Height + 2, 360, 120);
+                        CreateSingle(EnemyType.Sentry, width / 2, 0, 0);
+                        CreateRelative(EnemyType.BankingFlyer, 3, game.texEnemy01.Width, game.texEnemy01.Width, 0, 100, 0.1f);
+                        CreateRelative(EnemyType.BankingFlyer, 3, width - game.texEnemy01.Width, -game.texEnemy01.Width, 0, 100, -0.1f);
+                        CreatePointLine(EnemyType.Sentry, 160, 2, game.texEnemy02.Height + 2, 360, 120);
+                        CreatePointLine(EnemyType.Sentry, width - 160, 2, game.texEnemy02.Height + 2, 360, 120);
                     }
                     else if (timing.AtTime(0, 5, 0))
                     {
-                        CreateSpread(4, 5, game.texEnemy04.Width + 20, 100, 0.1f);
+                        CreateSpread(EnemyType.ThrustFlyer, 5, game.texEnemy04.Width + 20, 100, 0.1f);
                     }
                     else if (timing.AtTime(0, 6, 0))
                     {
-                        CreateRelative(1, 30, 20, 5, game.texEnemy01.Height, 300, 0.1f);
-                        CreateRelative(1, 30, width - 20, -5, game.texEnemy01.Height, 300, -0.1f);
+                        CreateRelative(EnemyType.BankingFlyer, 30, 20, 5, game.texEnemy01.Height, 300, 0.1f);
+                        CreateRelative(EnemyType.BankingFlyer, 30, width - 20, -5, game.texEnemy01.Height, 300, -0.1f);
                     }
                     else if (timing.AtTime(0, 7, 0))
                     {
-                        CreateSpread(2, 10, game.texEnemy02.Width, 250, 120);
+                        CreateSpread(EnemyType.Sentry, 10, game.texEnemy02.Width, 250, 120);
                     }
                     else if (timing.AtTime(30, 7, 0))
                     {
-                        CreateSingle(4, width / 2, 100, 0.2f);
+                        CreateSingle(EnemyType.ThrustFlyer, width / 2, 100, 0.2f);
                     }
                     else if (timing.AtTime(0, 8, 0))
                     {
-                        CreateSpread(2, 10, game.texEnemy02.Width, 250, 120);
-                        CreateSingle(4, width / 2, 100, 0.2f);
+                        CreateSpread(EnemyType.Sentry, 10, game.texEnemy02.Width, 250, 120);
+                        CreateSingle(EnemyType.ThrustFlyer, width / 2, 100, 0.2f);
                     }
                     else if (timing.AtTime(0, 9, 0))
                     {
-                        CreateRelative(1, 30, 100, 5, game.texEnemy01.Height, 200, 0.2f);
-                        CreateRelative(1, 30, width - 100, -5, game.texEnemy01.Height, 200, -0.2f);
+                        CreateRelative(EnemyType.BankingFlyer, 30, 100, 5, game.texEnemy01.Height, 200, 0.2f);
+                        CreateRelative(EnemyType.BankingFlyer, 30, width - 100, -5, game.texEnemy01.Height, 200, -0.2f);
                     }
                     else if (timing.AtTime(30, 9, 0))
                     {
-                        CreateSingle(4, width / 2, 100, 0.2f);
-                        CreateSingle(4, 20, 200, 0.2f);
-                        CreateSingle(4, width  - 20, 200, 0.2f);
+                        CreateSingle(EnemyType.ThrustFlyer, width / 2, 100, 0.2f);
+                        CreateSingle(EnemyType.ThrustFlyer, 20, 200, 0.2f);
+                        CreateSingle(EnemyType.ThrustFlyer, width  - 20, 200, 0.2f);
                     }
                     else if (timing.AtTime(0, 11, 0))
                     {
-                        CreateRelative(2, 10, game.texEnemy02.Width, game.texEnemy02.Width * 2, 0, 250, 60);
+                        CreateRelative(EnemyType.Sentry, 10, game.texEnemy02.Width, game.texEnemy02.Width * 2, 0, 250, 60);
                     }
                     if (timing.secs >= 11 && enemyIndex.Count == 0)
                     {
@@ -467,44 +467,44 @@ namespace FleetFighter
                 {
                     if (timing.AtTime(0, 1, 0))
                     {
-                        CreateSingle(5, width / 2, 200, 60);
+                        CreateSingle(EnemyType.BankingFlyerHard, width / 2, 200, 60);
                     }
                     else if (timing.AtTime(0, 2, 0))
                     {
-                        CreateRelative(1, 10, game.texEnemy01.Width, 0, game.texEnemy01.Height, 200, 0.2f);
-                        CreateRelative(1, 10, width - game.texEnemy01.Width, 0, game.texEnemy01.Height, 200, -0.2f);
+                        CreateRelative(EnemyType.BankingFlyer, 10, game.texEnemy01.Width, 0, game.texEnemy01.Height, 200, 0.2f);
+                        CreateRelative(EnemyType.BankingFlyer, 10, width - game.texEnemy01.Width, 0, game.texEnemy01.Height, 200, -0.2f);
                     }
                     else if (timing.AtTime(0, 3, 0))
                     {
-                        CreateRelative(1, 10, 32 + game.texEnemy01.Width, 0, game.texEnemy01.Height, 175, 0.3f);
-                        CreateRelative(1, 10, width - 32 - game.texEnemy01.Width, 0, game.texEnemy01.Height, 175, -0.3f);
+                        CreateRelative(EnemyType.BankingFlyer, 10, 32 + game.texEnemy01.Width, 0, game.texEnemy01.Height, 175, 0.3f);
+                        CreateRelative(EnemyType.BankingFlyer, 10, width - 32 - game.texEnemy01.Width, 0, game.texEnemy01.Height, 175, -0.3f);
                     }
                     else if (timing.AtTime(30, 3, 0))
                     {
-                        CreateRelative(3, 2, game.texEnemy03.Width, game.texEnemy03.Width, 0, -2, 0);
-                        CreateRelative(3, 2, width - game.texEnemy03.Width, -game.texEnemy03.Width, 0, 2, 0);
+                        CreateRelative(EnemyType.Distractor, 2, game.texEnemy03.Width, game.texEnemy03.Width, 0, -2, 0);
+                        CreateRelative(EnemyType.Distractor, 2, width - game.texEnemy03.Width, -game.texEnemy03.Width, 0, 2, 0);
                     }
                     else if (timing.AtTime(0, 4, 0))
                     {
-                        CreateSpreadDiagonal(1, 10, true, 200, 0.2f);
+                        CreateSpreadDiagonal(EnemyType.BankingFlyer, 10, true, 200, 0.2f);
                     }
                     else if (timing.AtTime(0, 5, 0))
                     {
-                        CreateSpreadDiagonal(1, 10, false, 200, -0.2f);
+                        CreateSpreadDiagonal(EnemyType.BankingFlyer, 10, false, 200, -0.2f);
                     }
                     else if (timing.AtTime(30, 5, 0))
                     {
-                        CreatePointLine(1, 20, 50, game.texEnemy01.Height, 0, 0);
-                        CreatePointLine(1, width - 20, 50, game.texEnemy01.Height, 0, 0);
-                        CreateSingle(5, width / 2, 200, 120);
+                        CreatePointLine(EnemyType.BankingFlyer, 20, 50, game.texEnemy01.Height, 0, 0);
+                        CreatePointLine(EnemyType.BankingFlyer, width - 20, 50, game.texEnemy01.Height, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyerHard, width / 2, 200, 120);
                     }
                     else if (timing.AtTime(0, 6, 0))
                     {
-                        CreateSingle(5, width / 2, 200, 120);
+                        CreateSingle(EnemyType.BankingFlyerHard, width / 2, 200, 120);
                     }
                     else if (timing.AtTime(0, 7, 0))
                     {
-                        CreateSpread(2, 5, game.texEnemy02.Width, 100, 30);
+                        CreateSpread(EnemyType.Sentry, 5, game.texEnemy02.Width, 100, 30);
                     }
                     else if (timing.AtTime(0, 8, 0))
                     {
@@ -512,7 +512,7 @@ namespace FleetFighter
                     }
                     else if (timing.AtTime(0, 9, 0))
                     {
-                        CreateSpread(2, 5, game.texEnemy02.Width, 200, 30);
+                        CreateSpread(EnemyType.Sentry, 5, game.texEnemy02.Width, 200, 30);
                     }
                     else if (timing.AtTime(0, 10, 0))
                     {
@@ -520,7 +520,7 @@ namespace FleetFighter
                     }
                     else if (timing.AtTime(0, 11, 0))
                     {
-                        CreateSpread(2, 5, game.texEnemy02.Width, 300, 30);
+                        CreateSpread(EnemyType.Sentry, 5, game.texEnemy02.Width, 300, 30);
                     }
                     else if (timing.AtTime(0, 12, 0))
                     {
@@ -528,7 +528,7 @@ namespace FleetFighter
                     }
                     else if (timing.AtTime(0, 13, 0))
                     {
-                        CreateSpread(2, 5, game.texEnemy02.Width, 400, 30);
+                        CreateSpread(EnemyType.Sentry, 5, game.texEnemy02.Width, 400, 30);
                     }
                     else if (timing.AtTime(0, 15, 0))
                     {
@@ -546,29 +546,29 @@ namespace FleetFighter
                 case (8):
                     if (timing.AtTime(0, 1, 0))
                     {
-                        CreatePointLine(6, width / 2, 5, 10, 0, 0);
-                        CreateSingle(6, 20, 0, 0);
-                        CreateSingle(6, width - 20, 0, 0);
+                        CreatePointLine(EnemyType.Bullet, width / 2, 5, 10, 0, 0);
+                        CreateSingle(EnemyType.Bullet, 20, 0, 0);
+                        CreateSingle(EnemyType.Bullet, width - 20, 0, 0);
                     }
                     else if (timing.AtTime(0, 2, 0))
                     {
-                        CreateSingle(6, 40, 0, 0);
-                        CreateSingle(6, width - 40, 0, 0);
+                        CreateSingle(EnemyType.Bullet, 40, 0, 0);
+                        CreateSingle(EnemyType.Bullet, width - 40, 0, 0);
                         CreateSpreadStaggered(0, 20, 0, 0);
                     }
                     else if (timing.AtTime(0, 3, 0))
                     {
-                        ObjEnemy enemy = CreateSingle(7, width / 2, 30, 0);
+                        ObjEnemy enemy = CreateSingle(EnemyType.Spawner, width / 2, 30, 0);
                     }
                     else if (timing.AtTime(0, 4, 0))
                     {
-                        CreatePointLine(2, 40, 3, 0, 200, 60);
-                        CreatePointLine(2, width - 40, 3, 0, 200, 60);
+                        CreatePointLine(EnemyType.Sentry, 40, 3, 0, 200, 60);
+                        CreatePointLine(EnemyType.Sentry, width - 40, 3, 0, 200, 60);
                     }
                     else if (timing.AtTime(30, 4, 0))
                     {
-                        CreateRelative(1, 3, 0, game.texEnemy01.Width + 32, 0, 300, 0.02f);
-                        CreateRelative(1, 3, width, -game.texEnemy01.Width - 32, 0, 300, -0.02f);
+                        CreateRelative(EnemyType.BankingFlyer, 3, 0, game.texEnemy01.Width + 32, 0, 300, 0.02f);
+                        CreateRelative(EnemyType.BankingFlyer, 3, width, -game.texEnemy01.Width - 32, 0, 300, -0.02f);
                     }
                     else if (timing.AtTime(0, 5, 0))
                     {
@@ -578,44 +578,44 @@ namespace FleetFighter
                     {
                         for (int i = 0; i < 30; i++)
                         {
-                            CreateSingleY(1, 50, -10 * i, 10 * i, 0.03f);
-                            CreateSingleY(1, width - 50, -10 * i, 10 * i, -0.03f);
+                            CreateSingleY(EnemyType.BankingFlyer, 50, -10 * i, 10 * i, 0.03f);
+                            CreateSingleY(EnemyType.BankingFlyer, width - 50, -10 * i, 10 * i, -0.03f);
                         }
                     }
                     else if (timing.AtTime(0, 8, 0))
                     {
                         for (int i = 0; i < 30; i++)
                         {
-                            CreateSingleY(1, 150, -10 * i, 10 * i, -0.03f);
-                            CreateSingleY(1, width - 150, -10 * i, 10 * i, 0.03f);
+                            CreateSingleY(EnemyType.BankingFlyer, 150, -10 * i, 10 * i, -0.03f);
+                            CreateSingleY(EnemyType.BankingFlyer, width - 150, -10 * i, 10 * i, 0.03f);
                         }
                     }
                     else if (timing.AtTime(0, 9, 0))
                     {
-                        CreatePointLine(2, 20, 10, game.texEnemy01.Width, 200, 60);
-                        CreatePointLine(2, width - 20, 10, game.texEnemy01.Width, 200, 60);
+                        CreatePointLine(EnemyType.Sentry, 20, 10, game.texEnemy01.Width, 200, 60);
+                        CreatePointLine(EnemyType.Sentry, width - 20, 10, game.texEnemy01.Width, 200, 60);
                     }
                     else if (timing.AtTime(0, 10, 0))
                     {
-                        CreateSingle(5, width / 2, 0, 0);
+                        CreateSingle(EnemyType.BankingFlyerHard, width / 2, 0, 0);
 
                         for (int i = 0; i < 30; i++)
                         {
-                            CreateSingleY(1, 10 * i, -10 * i, 10 * i, -0.03f);
-                            CreateSingleY(1, width - (10 * i), -10 * i, 10 * i, 0.03f);
+                            CreateSingleY(EnemyType.BankingFlyer, 10 * i, -10 * i, 10 * i, -0.03f);
+                            CreateSingleY(EnemyType.BankingFlyer, width - (10 * i), -10 * i, 10 * i, 0.03f);
                         }
                     }
                     else if (timing.AtTime(0, 11, 0))
                     {
-                        CreateSingle(3, 20, 2, 0);
-                        CreateSingle(3, width - 20, 2, 0);
-                        CreateSingle(3, 80, -2, 0);
-                        CreateSingle(3, width - 80, -2, 0);
+                        CreateSingle(EnemyType.Distractor, 20, 2, 0);
+                        CreateSingle(EnemyType.Distractor, width - 20, 2, 0);
+                        CreateSingle(EnemyType.Distractor, 80, -2, 0);
+                        CreateSingle(EnemyType.Distractor, width - 80, -2, 0);
                     }
                     else if (timing.AtTime(0, 12, 0))
                     {
-                        CreateSpreadDiagonal(3, 20, true, 4, 0);
-                        CreateSpreadDiagonal(3, 20, false, -4, 0);
+                        CreateSpreadDiagonal(EnemyType.Distractor, 20, true, 4, 0);
+                        CreateSpreadDiagonal(EnemyType.Distractor, 20, false, -4, 0);
                     }
                     else if (timing.AtTime(0, 13, 0))
                     {
@@ -623,13 +623,13 @@ namespace FleetFighter
                     }
                     else if (timing.AtTime(0, 14, 0))
                     {
-                        CreateSingle(7, 100, 10, 0);
-                        CreateSingle(7, width - 100, 10, 0);
+                        CreateSingle(EnemyType.Spawner, 100, 10, 0);
+                        CreateSingle(EnemyType.Spawner, width - 100, 10, 0);
                     }
                     else if (timing.AtTime(0, 15, 0))
                     {
-                        CreateRelative(4, 5, 120, game.texEnemy05.Width, 0, 200, 0.02f);
-                        CreateRelative(4, 5, width - 120, game.texEnemy05.Width, 0, 200, 0.02f);
+                        CreateRelative(EnemyType.ThrustFlyer, 5, 120, game.texEnemy05.Width, 0, 200, 0.02f);
+                        CreateRelative(EnemyType.ThrustFlyer, 5, width - 120, game.texEnemy05.Width, 0, 200, 0.02f);
                     }
                     if (timing.secs >= 15 && enemyIndex.Count == 0)
                     {
@@ -667,33 +667,33 @@ namespace FleetFighter
                     }
                     if (timing.AtTime(0, 9, 0))
                     {
-                        CreatePointLine(1, 0, 30, game.texEnemy01.Height, width - 50, 0.03f);
-                        CreatePointLine(1, width, 30, game.texEnemy01.Height, width - 50, -0.03f);
-                        CreateRelative(1, 3, width / 2 - 50, 50, 0, 0, 0);
+                        CreatePointLine(EnemyType.BankingFlyer, 0, 30, game.texEnemy01.Height, width - 50, 0.03f);
+                        CreatePointLine(EnemyType.BankingFlyer, width, 30, game.texEnemy01.Height, width - 50, -0.03f);
+                        CreateRelative(EnemyType.BankingFlyer, 3, width / 2 - 50, 50, 0, 0, 0);
                     }
                     if (timing.AtTime(0, 10, 0))
                     {
-                        CreateRelative(2, 5, width / 2 - 60, 30, 0, 200, 120);
+                        CreateRelative(EnemyType.Sentry, 5, width / 2 - 60, 30, 0, 200, 120);
                     }
                     if (timing.AtTime(0, 11, 0))
                     {
-                        CreateRelative(3, 5, width / 2 - 60, 30, 0, 0, 0);
+                        CreateRelative(EnemyType.Distractor, 5, width / 2 - 60, 30, 0, 0, 0);
                     }
                     if (timing.AtTime(0, 12, 0))
                     {
-                        CreateRelative(4, 5, width / 2 - 60, 30, 0, 0, 0);
+                        CreateRelative(EnemyType.ThrustFlyer, 5, width / 2 - 60, 30, 0, 0, 0);
                     }
                     if (timing.AtTime(0, 13, 0))
                     {
-                        CreateRelative(5, 5, width / 2 - 100, 50, 0, 0, 0);
+                        CreateRelative(EnemyType.BankingFlyerHard, 5, width / 2 - 100, 50, 0, 0, 0);
                     }
                     if (timing.AtTime(0, 14, 0))
                     {
-                        CreateSpreadStaggered(7, 10, 10, 0);
+                        CreateSpreadStaggered(EnemyType.Spawner, 10, 10, 0);
                     }
                     if (timing.AtTime(0, 15, 0))
                     {
-                        CreateSpreadStaggered(7, 30, 20, 0);
+                        CreateSpreadStaggered(EnemyType.Spawner, 30, 20, 0);
                     }
                     if (timing.secs >= 15 && enemyIndex.Count == 0)
                     {
@@ -735,14 +735,14 @@ namespace FleetFighter
             }
             objPlayer.Update(keyState, keyStateOld, mouseState, mouseStateOld, this);
 
-            //Ad-Hoc crap to accommodate for type 7 modifying the enemy index.
+            //Accomodates for type 7 modifying the enemy index.
             for (int i = 0; i < enemyIndex.Count; i++)
             {
-                if (enemyIndex[i].type == 7)
+                if (enemyIndex[i].type == EnemyType.Spawner)
                 {
                     if (enemyIndex[i].actionTime == 0)
                     {
-                        ObjEnemy enemy = new ObjEnemy(game, this, 6);
+                        ObjEnemy enemy = new ObjEnemy(game, this, EnemyType.Bullet);
                         enemy.SetCharacteristics();
                         enemy.sprite.rectDest.X = enemyIndex[i].sprite.rectDest.X;
                         enemy.sprite.rectDest.Y = enemyIndex[i].sprite.rectDest.Y;                        
@@ -759,8 +759,9 @@ namespace FleetFighter
             foreach (ObjEnemy enemy in enemyIndex)
             {
                 enemy.Update();
-                //Note that this doesn't delete enemies above the top of the screen, or type 3 enemies.
-                if (enemy.type != 3)
+
+                //This doesn't delete enemies above the top of the screen or distractors.
+                if (enemy.type != EnemyType.Distractor)
                 {
                     if (enemy.sprite.rectDest.X < -(enemy.sprite.rectDest.Width / 2) ||
                         enemy.sprite.rectDest.X > game.GraphicsDevice.Viewport.Width + (enemy.sprite.rectDest.Width / 2) ||
@@ -769,7 +770,7 @@ namespace FleetFighter
                         enemyIndexDelete.Add(enemy);
                     }
                 }
-                if (enemy.destroyed)
+                if (enemy.isDestroyed)
                 {
                     Sound.Play(game.sfxEnemyDestroyed, Convert.ToInt16(!game.isMuted) * 0.5f, (float)(game.chance.NextDouble() * 1.5) - 0.5f);
                     enemyIndexDelete.Add(enemy);
@@ -780,9 +781,9 @@ namespace FleetFighter
 
                     //Creates a bunch of fragments.
                     int fragments;
-                    if (enemy.type != 6) //Excludes type 6 enemies as they are very easy to destroy.
+                    if (enemy.type != EnemyType.Bullet) //Excludes type 6 enemies as they are very easy to destroy.
                     {
-                        fragments = random.Next(1, (int)(random.Next(1, 4) * (enemy.type + 1)));
+                        fragments = random.Next(1, (int)(random.Next(1, 4) * ((int)enemy.type + 1)));
                     }
                     else
                     {
@@ -809,6 +810,7 @@ namespace FleetFighter
             foreach (ObjBullet bullet in bulletIndex)
             {
                 bullet.Update();
+                
                 //Removes the bullet if off-screen
                 if (bullet.sprite.rectDest.X < 0 ||
                     bullet.sprite.rectDest.X > game.GraphicsDevice.Viewport.Width ||
@@ -825,6 +827,7 @@ namespace FleetFighter
             foreach (ObjMissile missile in missileIndex)
             {
                 missile.Update();
+                
                 //Removes the missile if off-screen
                 if (missile.sprite.rectDest.X < 0 ||
                     missile.sprite.rectDest.X > game.GraphicsDevice.Viewport.Width ||
@@ -851,7 +854,7 @@ namespace FleetFighter
                             enemy.sprite.rectDest.X,
                             enemy.sprite.rectDest.Y) < 150)
                         {
-                            enemy.destroyed = true;
+                            enemy.isDestroyed = true;
                         }
                     }
                 }
@@ -859,6 +862,7 @@ namespace FleetFighter
             foreach (ObjFragment fragment in fragmentIndex)
             {
                 fragment.Update();
+                
                 //Checks if the fragment is within a small distance of the player.
                 //If so, the fragments move towards the player (unless they're on a high difficulty).
                 if (difficulty < 3)
@@ -931,7 +935,7 @@ namespace FleetFighter
         /// <param name="type">The type of ship.</param>
         /// <param name="num">The number of ships created.</param>
         /// <param name="margins">The border in pixels on both sides of the x-axis.</param>
-        public ObjEnemy CreateSingle(int type, int xPos, float actionFloat1, float actionFloat2)
+        public ObjEnemy CreateSingle(EnemyType type, int xPos, float actionFloat1, float actionFloat2)
         {
             ObjEnemy enemy = new ObjEnemy(game, this, type);
             enemy.sprite.rectDest.X = xPos;
@@ -950,7 +954,7 @@ namespace FleetFighter
         /// <param name="yPos">The vertical offset of the ship.</param>
         /// <param name="num">The number of ships created.</param>
         /// <param name="margins">The border in pixels on both sides of the x-axis.</param>
-        public ObjEnemy CreateSingleY(int type, int xPos, int yOffset, float actionFloat1, float actionFloat2)
+        public ObjEnemy CreateSingleY(EnemyType type, int xPos, int yOffset, float actionFloat1, float actionFloat2)
         {
             ObjEnemy enemy = new ObjEnemy(game, this, type);
             enemy.sprite.rectDest.X = xPos;
@@ -969,7 +973,7 @@ namespace FleetFighter
         /// <param name="num">The number of ships created.</param>
         /// <param name="actionFloat1">A float used to indicate behavior for the enemies based on their type.</param>
         /// <param name="actionFloat2">A float used to indicate behavior for the enemies based on their type.</param>
-        public List<ObjEnemy> CreateSpread(int type, int num, int distance, float actionFloat1, float actionFloat2)
+        public List<ObjEnemy> CreateSpread(EnemyType type, int num, int distance, float actionFloat1, float actionFloat2)
         {
             List<ObjEnemy> enemyList = new List<ObjEnemy>();
 
@@ -995,7 +999,7 @@ namespace FleetFighter
         /// <param name="num">The number of ships created.</param>
         /// <param name="actionFloat1">A float used to indicate behavior for the enemies based on their type.</param>
         /// <param name="actionFloat2">A float used to indicate behavior for the enemies based on their type.</param>
-        public List<ObjEnemy> CreateSpreadStaggered(int type, int num, float actionFloat1, float actionFloat2)
+        public List<ObjEnemy> CreateSpreadStaggered(EnemyType type, int num, float actionFloat1, float actionFloat2)
         {
             List<ObjEnemy> enemyList = new List<ObjEnemy>();
 
@@ -1026,7 +1030,7 @@ namespace FleetFighter
         /// <param name="isLeftMost">Whether or not the first enemy is on the left.</param>
         /// <param name="actionFloat1">A float used to indicate behavior for the enemies based on their type.</param>
         /// <param name="actionFloat2">A float used to indicate behavior for the enemies based on their type.</param>
-        public List<ObjEnemy> CreateSpreadDiagonal(int type, int num, bool isLeftMost, float actionFloat1, float actionFloat2)
+        public List<ObjEnemy> CreateSpreadDiagonal(EnemyType type, int num, bool isLeftMost, float actionFloat1, float actionFloat2)
         {
             List<ObjEnemy> enemyList = new List<ObjEnemy>();
 
@@ -1060,7 +1064,7 @@ namespace FleetFighter
         /// <param name="yOffset">The vertican space between each ship.</param>
         /// <param name="actionFloat1">A float used to indicate behavior for the enemies based on their type.</param>
         /// <param name="actionFloat2">A float used to indicate behavior for the enemies based on their type.</param>
-        public List<ObjEnemy> CreatePointLine(int type, float xPos, int num, int yOffset, float actionFloat1, float actionFloat2)
+        public List<ObjEnemy> CreatePointLine(EnemyType type, float xPos, int num, int yOffset, float actionFloat1, float actionFloat2)
         {
             List<ObjEnemy> enemyList = new List<ObjEnemy>();
 
@@ -1089,7 +1093,7 @@ namespace FleetFighter
         /// <param name="num">The number of ships created.</param>
         /// <param name="actionFloat1">A float used to indicate behavior for the enemies based on their type.</param>
         /// <param name="actionFloat2">A float used to indicate behavior for the enemies based on their type.</param>
-        public List<ObjEnemy> CreateRelative(int type, int num, float xPos, float xOffset, float yOffset, float actionFloat1, float actionFloat2)
+        public List<ObjEnemy> CreateRelative(EnemyType type, int num, float xPos, float xOffset, float yOffset, float actionFloat1, float actionFloat2)
         {
             List<ObjEnemy> enemyList = new List<ObjEnemy>();
 

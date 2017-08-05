@@ -9,8 +9,8 @@
     <ProjectGuid>{9EF93FFC-1DC9-41CE-8D88-50CEA551D7F6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mono_Fleet_Fighter</RootNamespace>
-    <AssemblyName>Mono-Fleet-Fighter</AssemblyName>
+    <RootNamespace>FleetFighter</RootNamespace>
+    <AssemblyName>FleetFighter</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -41,6 +41,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="EnemyType.cs" />
     <Compile Include="Framework\CtrlKeyboard.cs" />
     <Compile Include="Framework\Mathematics.cs" />
     <Compile Include="Framework\SmoothRect.cs" />

@@ -48,7 +48,7 @@ namespace FleetFighter
                     sprite.rectDest.ToRect(), enemy.sprite.rectDest.ToRect());
                 if (intersection != Rectangle.Empty)
                 {
-                    enemy.destroyed = true;
+                    enemy.isDestroyed = true;
                     destroyed = true;
                 }
             }
